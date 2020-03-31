@@ -3,6 +3,4 @@
 require 'dhl_express/version'
 
 module DHLExpress
-  class Error < StandardError; end
-  # Your code goes here...
 end
