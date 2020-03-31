@@ -2,14 +2,13 @@
 
 require 'logger'
 
-def configure_client
+def configure_client(base_url: nil, username: nil, password: nil)
   DHLExpress::Client.configure do |config|
-    logger = Logger.new(STDERR)
-    logger.level = :debug
+    config.base_url = base_url || ENV.fetch('SANDBOX_BASE_URL')
+    config.username = username || ENV.fetch('SANDBOX_USERNAME')
+    config.password = password || ENV.fetch('SANDBOX_PASSWORD')
 
-    config.base_url = ENV.fetch('SANDBOX_BASE_URL')
-    config.username = ENV.fetch('SANDBOX_USERNAME')
-    config.password = ENV.fetch('SANDBOX_PASSWORD')
-    config.logger = logger
+    config.logger = Logger.new(STDERR)
+    config.logger.level = :debug
   end
 end
