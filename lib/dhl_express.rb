@@ -1,4 +1,6 @@
-require "dhl_express/version"
+# frozen_string_literal: true
+
+require 'dhl_express/version'
 
 module DhlExpress
   class Error < StandardError; end

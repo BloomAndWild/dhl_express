@@ -35,5 +35,7 @@ AllCops:
   TargetRubyVersion: 2.6
   DisplayCopNames: true
   Include:
+    - 'lib/**/*.rb'
     - '**/Rakefile'
     - '**/*.rake'
+    - '**/*.gemspec'
