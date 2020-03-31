@@ -2,7 +2,7 @@
 
 require 'dhl_express/version'
 
-module DhlExpress
+module DHLExpress
   class Error < StandardError; end
   # Your code goes here...
 end
