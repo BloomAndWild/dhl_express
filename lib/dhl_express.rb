@@ -11,6 +11,7 @@ require 'dhl_express/errors/abstract_method_error'
 require 'dhl_express/errors/response_error'
 
 require 'dhl_express/operation'
+require 'dhl_express/operations/shipment_delete_request'
 
 module DHLExpress
 end
