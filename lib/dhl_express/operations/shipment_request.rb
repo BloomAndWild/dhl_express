@@ -7,8 +7,16 @@ module DHLExpress
 
       private
 
+      def handle_response_body(body)
+        body[:ShipmentResponse]
+      end
+
       def service
         SERVICE_NAME
+      end
+
+      def payload
+        { service => options[:payload] }
       end
     end
   end

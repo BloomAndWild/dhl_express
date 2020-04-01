@@ -18,7 +18,7 @@ module DHLExpress
 
       response = http_client.run_request(http_method, endpoint, json_payload, headers)
       body = JSON.parse(response.body, symbolize_names: true)
-      return body if response.success?
+      return handle_response_body(body) if response.success?
 
       raise ResponseError.new(payload: payload, body: body, status: response.status)
     end
@@ -31,6 +31,10 @@ module DHLExpress
 
     def service
       raise AbstractMethodError
+    end
+
+    def handle_response_body(body)
+      body
     end
 
     private

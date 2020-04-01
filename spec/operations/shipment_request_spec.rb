@@ -4,93 +4,126 @@ RSpec.describe DHLExpress::Operations::ShipmentRequest do
   before { configure_client }
 
   describe '#execute' do
-    let(:payload) do
-      {
-        "ShipmentRequest": {
+    context 'with valid request' do
+      let(:payload) do
+        {
           "RequestedShipment": {
             "ShipmentInfo": {
-              "DropOffType": "REGULAR_PICKUP",
-              "ServiceType": "P",
-              "Account": "952670377",
-              "Currency": "GBP",
-              "UnitOfMeasurement": "SI"
+              "DropOffType": 'REGULAR_PICKUP',
+              "ServiceType": 'P',
+              "Account": '952670377',
+              "Currency": 'SGD',
+              "UnitOfMeasurement": 'SI'
             },
-            "ShipTimestamp": "2020-04-04T16:40:40GMT+01:00",
-            "PaymentInfo": "DAP",
+            "ShipTimestamp": '2020-04-04T16:40:40GMT+01:00',
+            "PaymentInfo": 'DAP',
             "InternationalDetail": {
               "Commodities": {
                 "NumberOfPieces": 2,
-                "Description": "Customer Reference 1",
-                "CountryOfManufacture": "GB",
+                "Description": 'Customer Reference 1',
+                "CountryOfManufacture": 'CN',
                 "Quantity": 1,
                 "UnitPrice": 5,
                 "CustomsValue": 10
               },
-              "Content": "NON_DOCUMENTS"
+              "Content": 'NON_DOCUMENTS'
             },
             "Ship": {
               "Shipper": {
                 "Contact": {
-                  "PersonName": "Tester 1",
-                  "CompanyName": "Bloom&Wild",
-                  "PhoneNumber": "02031370535",
-                  "EmailAddress": "hello@bloomandwild.com"
+                  "PersonName": 'Tester 1',
+                  "CompanyName": 'DHL',
+                  "PhoneNumber": 2_175_441_239,
+                  "EmailAddress": 'jb@acme.com'
                 },
                 "Address": {
-                  "StreetLines": "Unit W.301, Vox Studios",
-                  "City": "London",
-                  "PostalCode": "SE11 5JH",
-                  "CountryCode": "GB"
+                  "StreetLines": '#05-33 Singapore Post Centre',
+                  "City": 'Singapore ',
+                  "PostalCode": 408_600,
+                  "CountryCode": 'SG'
                 }
               },
               "Recipient": {
                 "Contact": {
-                  "PersonName": "Boris Johnson",
-                  "CompanyName": "The Government",
-                  "PhoneNumber": "02079250918",
-                  "EmailAddress": "boris.johnson@gov.uk"
+                  "PersonName": 'Tester 2',
+                  "CompanyName": 'Acme Inc',
+                  "PhoneNumber": 88_347_346_643,
+                  "EmailAddress": 'jackie.chan@eei.com'
                 },
                 "Address": {
-                  "StreetLines": "10 Downing St, Westminster",
-                  "City": "London",
-                  "PostalCode": "SW1A 2AA",
-                  "CountryCode": "GB"
+                  "StreetLines": '500 Hunt Valley Road',
+                  "City": 'New Kensington PA',
+                  "StateOrProvinceCode": 'PA',
+                  "PostalCode": 15_068,
+                  "CountryCode": 'US'
                 }
               }
             },
             "Packages": {
               "RequestedPackages": [
                 {
-                  "@number": "1",
+                  "@number": '1',
                   "Weight": 2,
                   "Dimensions": {
                     "Length": 1,
                     "Width": 2,
                     "Height": 3
                   },
-                  "CustomerReferences": "Piece 1"
+                  "CustomerReferences": 'Piece 1'
                 },
                 {
-                  "@number": "2",
+                  "@number": '2',
                   "Weight": 2,
                   "Dimensions": {
                     "Length": 1,
                     "Width": 2,
                     "Height": 3
                   },
-                  "CustomerReferences": "Piece 2"
+                  "CustomerReferences": 'Piece 2'
                 }
               ]
             }
           }
         }
-      }
-    end
+      end
 
-    let(:subject) { described_class.new(payload: payload) }
+      let(:subject) { described_class.new(payload: payload) }
 
-    it 'returns response body' do
-      # expect(subject.execute).to eq({})
+      it 'returns response body' do
+        VCR.use_cassette('shipment_request/valid_request') do
+          result = subject.execute
+
+          expect(result).to match(
+            hash_including(
+              "Notification": [
+                {
+                  "@code": '0',
+                  "Message": nil
+                }
+              ],
+              "PackagesResult": {
+                "PackageResult": [
+                  {
+                    "@number": '1',
+                    "TrackingNumber": 'JD011100003640077171'
+                  },
+                  {
+                    "@number": '2',
+                    "TrackingNumber": 'JD011100003640077172'
+                  }
+                ]
+              },
+              "LabelImage": [
+                {
+                  "LabelImageFormat": 'PDF',
+                  "GraphicImage": a_kind_of(String)
+                }
+              ],
+              "ShipmentIdentificationNumber": 1_149_080_192
+            )
+          )
+        end
+      end
     end
   end
 end
