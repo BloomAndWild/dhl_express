@@ -1,9 +1,7 @@
-RSpec.describe DhlExpress do
-  it "has a version number" do
-    expect(DhlExpress::VERSION).not_to be nil
-  end
+# frozen_string_literal: true
 
-  it "does something useful" do
-    expect(false).to eq(true)
+RSpec.describe DHLExpress do
+  it 'has a version number' do
+    expect(DHLExpress::VERSION).not_to be nil
   end
 end

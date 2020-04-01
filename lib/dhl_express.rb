@@ -1,6 +1,16 @@
-require "dhl_express/version"
+# frozen_string_literal: true
 
-module DhlExpress
-  class Error < StandardError; end
-  # Your code goes here...
+require 'json'
+require 'faraday'
+
+require 'dhl_express/client'
+require 'dhl_express/config'
+require 'dhl_express/version'
+
+require 'dhl_express/errors/abstract_method_error'
+require 'dhl_express/errors/response_error'
+
+require 'dhl_express/operation'
+
+module DHLExpress
 end
