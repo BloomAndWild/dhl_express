@@ -37,7 +37,39 @@ end
 
 ## ShipmentRequest
 
-TBD
+```ruby
+DHLExpress::Operations::ShipmentRequest.new(payload: {
+  ClientDetail: {
+    # ...
+  },
+  RequestedShipment: {
+    # ...
+  }
+}).execute
+```
+
+A successful call will return parsed (from JSON) response body, for example:
+
+```ruby
+{
+  "Notification": [
+    {
+      # ...
+    }
+  ],
+  "PackagesResult": {
+    "PackageResult": [
+      # ...
+    ]
+  },
+  "LabelImage": [
+    {
+      # ...
+    }
+  ],
+  "ShipmentIdentificationNumber": 123456789
+}
+```
 
 ## ShipmentDeleteRequest
 
