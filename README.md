@@ -40,7 +40,20 @@ TBD
 
 ## ShipmentDeleteRequest
 
-TBD
+```ruby
+DHLExpress::Operations::ShipmentDeleteRequest.new(payload: {}).execute
+```
+
+Example of payload -
+```
+{
+  "PickupDate" => "2017-07-24",
+  "PickupCountry" => "SG",
+  "DispatchConfirmationNumber" => "SIN-952041",
+  "RequestorName" => "Terry Kelly",
+  "Reason" => "001",
+}
+```
 
 ## TrackingRequest
 
@@ -48,7 +61,7 @@ TBD
 
 ## Running specs
 
-To run the specs, add your development credentials to your dev env: 
+To run the specs, add your development credentials to your dev env:
 ```
 SANDBOX_BASE_URL=https://wsbexpress.dhl.com:443/rest/sndpt
 SANDBOX_USERNAME=test@test.com

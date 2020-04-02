@@ -14,9 +14,7 @@ module DHLExpress
       private
 
       def payload
-        {
-          "DeleteRequest" : options[:payload],
-        }
+        { "DeleteRequest" => options[:payload] }
       end
     end
   end
