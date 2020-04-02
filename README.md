@@ -28,6 +28,7 @@ DHLExpress::Client.configure do |config|
   config.base_url = ENV.fetch('BASE_URL')
   config.username = ENV.fetch('USERNAME')
   config.password = ENV.fetch('PASSWORD')
+  config.account = ENV.fetch('ACCOUNT')
 
   config.logger = Logger.new(STDERR)
   config.level = :debug
@@ -53,6 +54,7 @@ To run the specs, add your development credentials to your dev env:
 SANDBOX_BASE_URL=https://wsbexpress.dhl.com:443/rest/sndpt
 SANDBOX_USERNAME=test@test.com
 SANDBOX_PASSWORD=password
+SANDBOX_ACCOUNT=123456789
 ```
 
 ## Contributing

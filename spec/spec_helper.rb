@@ -24,6 +24,9 @@ VCR.configure do |c|
       match.captures.first
     end
   end
+  c.filter_sensitive_data('<ACCOUNT>') do |interaction|
+    interaction.request.body.match(/"Account":"(\d+)"/)&.captures&.first
+  end
 end
 
 RSpec.configure do |config|

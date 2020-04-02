@@ -88,8 +88,8 @@ RSpec.describe DHLExpress::Operations::ShipmentRequest do
 
     let(:subject) { described_class.new(payload: payload) }
 
-    context 'with invalid request' do
-      let(:account) { '140533138' }
+    context 'with invalid account number' do
+      let(:account) { DHLExpress::Client.config.account }
 
       it 'returns error response body' do
         VCR.use_cassette('shipment_request/invalid_request') do
@@ -109,8 +109,8 @@ RSpec.describe DHLExpress::Operations::ShipmentRequest do
       end
     end
 
-    context 'with valid request' do
-      let(:account) { '952670377' }
+    context 'with valid account number' do
+      let(:account) { DHLExpress::Client.config.account }
 
       it 'returns response body' do
         VCR.use_cassette('shipment_request/valid_request') do

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://wsbexpress.dhl.com/rest/sndpt/ShipmentRequest
     body:
       encoding: UTF-8
-      string: '{"ShipmentRequest":{"RequestedShipment":{"ShipmentInfo":{"DropOffType":"REGULAR_PICKUP","ServiceType":"P","Account":"952670377","Currency":"SGD","UnitOfMeasurement":"SI"},"ShipTimestamp":"2020-04-04T16:40:40GMT+01:00","PaymentInfo":"DAP","InternationalDetail":{"Commodities":{"NumberOfPieces":2,"Description":"Customer
+      string: '{"ShipmentRequest":{"RequestedShipment":{"ShipmentInfo":{"DropOffType":"REGULAR_PICKUP","ServiceType":"P","Account":"<ACCOUNT>","Currency":"SGD","UnitOfMeasurement":"SI"},"ShipTimestamp":"2020-04-04T16:40:40GMT+01:00","PaymentInfo":"DAP","InternationalDetail":{"Commodities":{"NumberOfPieces":2,"Description":"Customer
         Reference 1","CountryOfManufacture":"CN","Quantity":1,"UnitPrice":5,"CustomsValue":10},"Content":"NON_DOCUMENTS"},"Ship":{"Shipper":{"Contact":{"PersonName":"Tester
         1","CompanyName":"DHL","PhoneNumber":2175441239,"EmailAddress":"jb@acme.com"},"Address":{"StreetLines":"#05-33
         Singapore Post Centre","City":"Singapore ","PostalCode":408600,"CountryCode":"SG"}},"Recipient":{"Contact":{"PersonName":"Tester

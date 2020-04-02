@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://wsbexpress.dhl.com/rest/sndpt/ShipmentRequest
+    body:
+      encoding: UTF-8
+      string: '{"ShipmentRequest":{"RequestedShipment":{"ShipmentInfo":{"DropOffType":"REGULAR_PICKUP","ServiceType":"P","Account":"<ACCOUNT>","Currency":"SGD","UnitOfMeasurement":"SI"},"ShipTimestamp":"2020-04-04T16:40:40GMT+01:00","PaymentInfo":"DAP","InternationalDetail":{"Commodities":{"NumberOfPieces":2,"Description":"Customer
+        Reference 1","CountryOfManufacture":"CN","Quantity":1,"UnitPrice":5,"CustomsValue":10},"Content":"NON_DOCUMENTS"},"Ship":{"Shipper":{"Contact":{"PersonName":"Tester
+        1","CompanyName":"DHL","PhoneNumber":2175441239,"EmailAddress":"jb@acme.com"},"Address":{"StreetLines":"#05-33
+        Singapore Post Centre","City":"Singapore ","PostalCode":408600,"CountryCode":"SG"}},"Recipient":{"Contact":{"PersonName":"Tester
+        2","CompanyName":"Acme Inc","PhoneNumber":88347346643,"EmailAddress":"jackie.chan@eei.com"},"Address":{"StreetLines":"500
+        Hunt Valley Road","City":"New Kensington PA","StateOrProvinceCode":"PA","PostalCode":15068,"CountryCode":"US"}}},"Packages":{"RequestedPackages":[{"@number":"1","Weight":2,"Dimensions":{"Length":1,"Width":2,"Height":3},"CustomerReferences":"Piece
+        1"},{"@number":"2","Weight":2,"Dimensions":{"Length":1,"Width":2,"Height":3},"CustomerReferences":"Piece
+        2"}]}}}}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - Basic <BASIC_AUTH_CREDENTIALS>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Apr 2020 10:11:04 GMT
+      Max-Forwards:
+      - '20'
+      Via:
+      - 1.0 czchols4547.prg-dc.dhl.com ()
+      Content-Length:
+      - '377'
+      Connection:
+      - close
+      X-Correlationid:
+      - Id-38ba855eae982655ea7f78f0 0
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~WSB~pl_wsb-express-chd.dhl.com_443=292047013.64288.0000; path=/;
+        Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: "{\n  \"ShipmentResponse\" : {\n    \"Notification\" : [  {\n      \"@code\"
+        : \"8009\",\n      \"Message\" : \"Shipper Billing Country must either be
+        same as Billing Country of Shipment Origin or the Shipper Account must be
+        an Impex Account.\"\n    },  {\n      \"@code\" : \"999\",\n      \"Message\"
+        : \"Process failure occurred. Process ID associated for that transaction (128785631)\"\n
+        \   } ]\n  }\n}\r\n"
+    http_version: null
+  recorded_at: Thu, 02 Apr 2020 10:11:04 GMT
+recorded_with: VCR 5.1.0
