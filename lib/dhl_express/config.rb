@@ -2,6 +2,6 @@
 
 module DHLExpress
   class Config
-    attr_accessor :base_url, :username, :password, :logger
+    attr_accessor :base_url, :username, :password, :logger, :account
   end
 end
