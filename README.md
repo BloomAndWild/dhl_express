@@ -54,22 +54,22 @@ If successful will return parsed (from JSON) response body, for example:
 
 ```ruby
 {
-  "Notification": [
+  Notification: [
     {
       # ...
     }
   ],
-  "PackagesResult": {
-    "PackageResult": [
+  PackagesResult: {
+    PackageResult: [
       # ...
     ]
   },
-  "LabelImage": [
+  LabelImage: [
     {
       # ...
     }
   ],
-  "ShipmentIdentificationNumber": 123456789
+  ShipmentIdentificationNumber: 123456789
 }
 ```
 
@@ -83,16 +83,16 @@ A call to TrackingRequest service with sample payload:
 
 ```ruby
 DHLExpress::Operations::TrackingRequest.new(payload: {
-  "Request": {
-    "ServiceHeader": {
+  Request: {
+    ServiceHeader: {
       # ...
     }
   },
-  "AWBNumber": {
-    "ArrayOfAWBNumberItem": 123456789
+  AWBNumber: {
+    ArrayOfAWBNumberItem: 123456789
   },
-  "LevelOfDetails": 'ALL_CHECK_POINTS',
-  "PiecesEnabled": 'B'
+  LevelOfDetails: 'ALL_CHECK_POINTS',
+  PiecesEnabled: 'B'
 }).execute
 ```
 
@@ -100,18 +100,18 @@ If successful will return parsed (from JSON) response body, for example:
 
 ```ruby
 {
-  "Response": {
-    "ServiceHeader": {
+  Response: {
+    ServiceHeader: {
       # ...
     }
   },
-  "AWBInfo": {
-    "ArrayOfAWBInfoItem": {
-      "AWBNumber": 1234567890,
-      "Status": {
-        "ActionStatus": 'Success'
+  AWBInfo: {
+    ArrayOfAWBInfoItem: {
+      AWBNumber: 1234567890,
+      Status: {
+        ActionStatus: 'Success'
       },
-      "ShipmentInfo": {
+      ShipmentInfo: {
         # ...
       }
     }
