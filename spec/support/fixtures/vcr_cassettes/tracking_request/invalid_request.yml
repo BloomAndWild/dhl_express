@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://wsbexpress.dhl.com/rest/sndpt/TrackingRequest
+    body:
+      encoding: UTF-8
+      string: '{"trackShipmentRequest":{"trackingRequest":{"TrackingRequest":{"Request":{"ServiceHeader":{"MessageTime":"2017-10-10T12:40:00Z","MessageReference":"896ab310ba5311e38d9ffb21b7e57543"}},"AWBNumber":{"ArrayOfAWBNumberItem":1234567890},"LevelOfDetails":"ALL_CHECK_POINTS","PiecesEnabled":"B"}}}}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - Basic <BASIC_AUTH_CREDENTIALS>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 03 Apr 2020 10:29:08 GMT
+      Max-Forwards:
+      - '20'
+      Via:
+      - 1.0 czchols4548.prg-dc.dhl.com ()
+      Content-Length:
+      - '752'
+      Connection:
+      - close
+      X-Correlationid:
+      - Id-f40f875e0a77a74876b3e7b0 0
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~WSB~pl_wsb-express-chd.dhl.com_443=308824229.64288.0000; path=/;
+        Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: "{\n  \"trackShipmentRequestResponse\" : {\n    \"trackingResponse\"
+        : {\n      \"TrackingResponse\" : {\n        \"Response\" : {\n          \"ServiceHeader\"
+        : {\n            \"MessageTime\" : \"2020-04-03T10:29:08\",\n            \"MessageReference\"
+        : \"896ab310ba5311e38d9ffb21b7e57543\"\n          }\n        },\n        \"AWBInfo\"
+        : {\n          \"ArrayOfAWBInfoItem\" : {\n            \"AWBNumber\" : 1234567890,\n
+        \           \"Status\" : {\n              \"ActionStatus\" : \"No Shipments
+        Found\",\n              \"Condition\" : {\n                \"ArrayOfConditionItem\"
+        : {\n                  \"ConditionCode\" : 101,\n                  \"ConditionData\"
+        : \"No Shipments Found for AWBNumber | 1234567890\"\n                }\n              }\n
+        \           }\n          }\n        }\n      }\n    }\n  }\n}\r\n"
+    http_version: null
+  recorded_at: Fri, 03 Apr 2020 10:29:08 GMT
+recorded_with: VCR 5.1.0

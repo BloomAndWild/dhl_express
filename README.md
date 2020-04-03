@@ -37,6 +37,8 @@ end
 
 ## ShipmentRequest
 
+A call to ShipmentRequest service with sample payload:
+
 ```ruby
 DHLExpress::Operations::ShipmentRequest.new(payload: {
   ClientDetail: {
@@ -48,7 +50,7 @@ DHLExpress::Operations::ShipmentRequest.new(payload: {
 }).execute
 ```
 
-A successful call will return parsed (from JSON) response body, for example:
+If successful will return parsed (from JSON) response body, for example:
 
 ```ruby
 {
@@ -77,7 +79,45 @@ TBD
 
 ## TrackingRequest
 
-TBD
+A call to TrackingRequest service with sample payload:
+
+```ruby
+DHLExpress::Operations::TrackingRequest.new(payload: {
+  "Request": {
+    "ServiceHeader": {
+      # ...
+    }
+  },
+  "AWBNumber": {
+    "ArrayOfAWBNumberItem": 123456789
+  },
+  "LevelOfDetails": 'ALL_CHECK_POINTS',
+  "PiecesEnabled": 'B'
+}).execute
+```
+
+If successful will return parsed (from JSON) response body, for example:
+
+```ruby
+{
+  "Response": {
+    "ServiceHeader": {
+      # ...
+    }
+  },
+  "AWBInfo": {
+    "ArrayOfAWBInfoItem": {
+      "AWBNumber": 1234567890,
+      "Status": {
+        "ActionStatus": 'Success'
+      },
+      "ShipmentInfo": {
+        # ...
+      }
+    }
+  }
+}
+```
 
 ## Running specs
 
