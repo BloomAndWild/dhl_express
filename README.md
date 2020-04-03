@@ -80,11 +80,21 @@ DHLExpress::Operations::ShipmentDeleteRequest.new(payload: {}).execute
 Example of payload -
 ```
 {
-  "PickupDate" => "2017-07-24",
-  "PickupCountry" => "SG",
-  "DispatchConfirmationNumber" => "SIN-952041",
-  "RequestorName" => "Terry Kelly",
-  "Reason" => "001",
+  "PickupDate": "2017-07-24",
+  "PickupCountry": "SG",
+  "DispatchConfirmationNumber": "SIN-952041",
+  "RequestorName": "Terry Kelly",
+}
+```
+
+A successful call will return parsed (from JSON) response body, for example:
+
+```
+{
+  "Notification": {
+    "@code": "0",
+    "Message": "Successfully cancelled"
+  }
 }
 ```
 

@@ -5,16 +5,18 @@ module DHLExpress
     class ShipmentDeleteRequest < Operation
       SERVICE_NAME = "DeleteShipment"
 
-      protected
+      private
+
+      def handle_response_body(body)
+        body[:DeleteResponse]
+      end
 
       def service
         SERVICE_NAME
       end
 
-      private
-
       def payload
-        { "DeleteRequest" => options[:payload] }
+        { "DeleteRequest": options[:payload] }
       end
     end
   end
