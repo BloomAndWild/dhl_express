@@ -61,5 +61,37 @@ RSpec.describe DHLExpress::Operations::ShipmentDeleteRequest do
         end
       end
     end
+
+    context 'with cancelled booking' do
+      let(:payload) do
+        {
+          "PickupDate": "2020-04-04",
+          "PickupCountry": "SG",
+          "DispatchConfirmationNumber": "CBJ180121002626",
+          "RequestorName": "Terry Kelly",
+        }
+      end
+
+      let(:failed_cancellation_message) do
+        "Booking already cancelled or completed."
+      end
+
+      it 'returns error response body' do
+        VCR.use_cassette('shipment_delete_request/cancelled_booking_request') do
+          result = subject.execute
+
+          expect(result).to match(
+            hash_including(
+              "Notification": array_including(
+                [
+                  { "@code": '410928', "Message": failed_cancellation_message },
+                  { "@code": '444', "Message": a_kind_of(String) }
+                ]
+              )
+            )
+          )
+        end
+      end
+    end
   end
 end
