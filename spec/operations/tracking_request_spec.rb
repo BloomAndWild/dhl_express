@@ -5,19 +5,19 @@ RSpec.describe DHLExpress::Operations::TrackingRequest do
 
   describe '#execute' do
     let(:payload) do
-{
-  "Request": {
-    "ServiceHeader": {
-      "MessageTime": '2017-10-10T12:40:00Z',
-      "MessageReference": '896ab310ba5311e38d9ffb21b7e57543'
-    }
-  },
-  "AWBNumber": {
-    "ArrayOfAWBNumberItem": tracking_number
-  },
-  "LevelOfDetails": 'ALL_CHECK_POINTS',
-  "PiecesEnabled": 'B'
-}
+      {
+        "Request": {
+          "ServiceHeader": {
+            "MessageTime": '2017-10-10T12:40:00Z',
+            "MessageReference": '896ab310ba5311e38d9ffb21b7e57543'
+          }
+        },
+        "AWBNumber": {
+          "ArrayOfAWBNumberItem": tracking_number
+        },
+        "LevelOfDetails": 'ALL_CHECK_POINTS',
+        "PiecesEnabled": 'B'
+      }
     end
 
     let(:subject) { described_class.new(payload: payload) }
