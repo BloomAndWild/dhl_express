@@ -1,0 +1,128 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://wsbexpress.dhl.com/rest/sndpt/TrackingRequest
+    body:
+      encoding: UTF-8
+      string: '{"trackShipmentRequest":{"trackingRequest":{"TrackingRequest":{"Request":{"ServiceHeader":{"MessageTime":"2017-10-10T12:40:00Z","MessageReference":"896ab310ba5311e38d9ffb21b7e57543"}},"AWBNumber":{"ArrayOfAWBNumberItem":3898464710},"LevelOfDetails":"ALL_CHECK_POINTS","PiecesEnabled":"B"}}}}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - Basic <BASIC_AUTH_CREDENTIALS>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 03 Apr 2020 08:54:20 GMT
+      Max-Forwards:
+      - '20'
+      Via:
+      - 1.0 czchols4548.prg-dc.dhl.com ()
+      Content-Length:
+      - '6621'
+      Connection:
+      - close
+      X-Correlationid:
+      - Id-bcf9865e5290f664aa7c0cc0 0
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~WSB~pl_wsb-express-chd.dhl.com_443=308824229.64288.0000; path=/;
+        Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: "{\n  \"trackShipmentRequestResponse\" : {\n    \"trackingResponse\"
+        : {\n      \"TrackingResponse\" : {\n        \"Response\" : {\n          \"ServiceHeader\"
+        : {\n            \"MessageTime\" : \"2020-04-03T08:54:20\",\n            \"MessageReference\"
+        : \"896ab310ba5311e38d9ffb21b7e57543\"\n          }\n        },\n        \"AWBInfo\"
+        : {\n          \"ArrayOfAWBInfoItem\" : {\n            \"AWBNumber\" : 3898464710,\n
+        \           \"Status\" : {\n              \"ActionStatus\" : \"Success\"\n
+        \           },\n            \"ShipmentInfo\" : {\n              \"OriginServiceArea\"
+        : {\n                \"ServiceAreaCode\" : \"KUL\",\n                \"Description\"
+        : \"Kuala Lumpur-MY\"\n              },\n              \"DestinationServiceArea\"
+        : {\n                \"ServiceAreaCode\" : \"SIN\",\n                \"Description\"
+        : \"Singapore-SG\",\n                \"FacilityCode\" : \"PEK\"\n              },\n
+        \             \"ShipperName\" : \"FRESIA AGUIRRE RIVERA\",\n              \"ConsigneeName\"
+        : \"EMEC INT TRADING\",\n              \"ShipmentDate\" : \"1970-01-02T00:00:00\",\n
+        \             \"Pieces\" : 1,\n              \"Weight\" : 1.0,\n              \"WeightUnit\"
+        : \"G\",\n              \"ShipmentEvent\" : {\n                \"ArrayOfShipmentEventItem\"
+        : [ {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:00\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"PU\",\n                    \"Description\" : \"Shipment Pickup \"\n                  },\n
+        \                 \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:01\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"RD\",\n                    \"Description\" : \"Refused Delivery \"\n                  },\n
+        \                 \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:02\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"MD\",\n                    \"Description\" : \"Missed Delivery Cycle \"\n
+        \                 },\n                  \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:03\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"MS\",\n                    \"Description\" : \"Missort \"\n                  },\n
+        \                 \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:05\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"PL\",\n                    \"Description\" : \"Processed at Location \"\n
+        \                 },\n                  \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:06\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"DF\",\n                    \"Description\" : \"Depart Facility \"\n                  },\n
+        \                 \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:07\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"AF\",\n                    \"Description\" : \"Arrived Facility \"\n                  },\n
+        \                 \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:08\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"NH\",\n                    \"Description\" : \"Not Home \"\n                  },\n
+        \                 \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:09\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"OH\",\n                    \"Description\" : \"On Hold \"\n                  },\n
+        \                 \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:10\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"WC\",\n                    \"Description\" : \"With Delivering Courier
+        \"\n                  },\n                  \"ServiceArea\" : {\n                    \"ServiceAreaCode\"
+        : \"KUL\",\n                    \"Description\" : \"Kuala Lumpur-MY\"\n                  }\n
+        \               }, {\n                  \"Date\" : \"2015-10-12\",\n                  \"Time\"
+        : \"00:00:11\",\n                  \"ServiceEvent\" : {\n                    \"EventCode\"
+        : \"OK\",\n                    \"Description\" : \"Delivery \"\n                  },\n
+        \                 \"Signatory\" : \"TEST99\",\n                  \"ServiceArea\"
+        : {\n                    \"ServiceAreaCode\" : \"KUL\",\n                    \"Description\"
+        : \"Kuala Lumpur-MY\"\n                  }\n                }, {\n                  \"Date\"
+        : \"2019-11-14\",\n                  \"Time\" : \"18:02:00\",\n                  \"ServiceEvent\"
+        : {\n                    \"EventCode\" : \"DF\",\n                    \"Description\"
+        : \"Depart Facility \"\n                  },\n                  \"ServiceArea\"
+        : {\n                    \"ServiceAreaCode\" : \"FLR\",\n                    \"Description\"
+        : \"Florence-IT\"\n                  }\n                }, {\n                  \"Date\"
+        : \"2019-11-14\",\n                  \"Time\" : \"18:08:00\",\n                  \"ServiceEvent\"
+        : {\n                    \"EventCode\" : \"AR\",\n                    \"Description\"
+        : \"Arrival in Delivery Facility\"\n                  },\n                  \"ServiceArea\"
+        : {\n                    \"ServiceAreaCode\" : \"MIL\",\n                    \"Description\"
+        : \"Milan-IT\"\n                  }\n                } ]\n              }\n
+        \           }\n          }\n        }\n      }\n    }\n  }\n}\r\n"
+    http_version: null
+  recorded_at: Fri, 03 Apr 2020 08:54:20 GMT
+recorded_with: VCR 5.1.0
