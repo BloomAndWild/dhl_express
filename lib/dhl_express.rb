@@ -12,6 +12,7 @@ require 'dhl_express/errors/response_error'
 
 require 'dhl_express/operation'
 require 'dhl_express/operations/shipment_request'
+require 'dhl_express/operations/shipment_delete_request'
 require 'dhl_express/operations/tracking_request'
 
 module DHLExpress
